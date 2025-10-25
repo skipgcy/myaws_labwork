@@ -1,38 +1,25 @@
-# Default tags
-variable "default_tags" {
-  default = {
-    "Owner" = "Chenyu",
-    "App"   = "Web"
-  }
-  type        = map(any)
-  description = "Default tags to be appliad to all AWS resources"
-}
-
-# Name prefix
-variable "prefix" {
-  type        = string
-  default     = "week5"
-  description = "Name prefix"
-}
-
-# Provision public subnets in custom VPC
-variable "public_subnet_cidr_blocks" {
-  default     = ["10.0.0.0/24", "10.0.1.0/24"]
-  type        = list(string)
-  description = "Public Subnet CIDRs"
-}
-
-# VPC CIDR range
-variable "vpc_cidr_blocks" {
-  default     = "10.0.0.0/16"
-  type        = string
-  description = "VPC to host static web site"
-}
-
-# Variable to signal the current environment 
 variable "env" {
+  description = "Environment"
   default     = "dev"
-  type        = string
-  description = "Deployment Environment"
 }
 
+variable "prefix" {
+  description = "Resource prefix"
+  default     = "myaws"
+}
+
+variable "vpc_cidr" {
+  description = "CIDR block for VPC"
+  default     = "10.0.0.0/16"
+}
+
+variable "public_subnet_cidrs" {
+  description = "List of public subnet CIDRs"
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+variable "default_tags" {
+  description = "Default tags for resources"
+  type        = map(string)
+  default     = { Owner = "Chenyu" }
+}
