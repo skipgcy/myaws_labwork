@@ -82,14 +82,14 @@ resource "aws_route_table_association" "public_routes" {
 
 # Module to deploy basic networking 
 module "vpc-dev" {
-  # source              = "../../../modules/aws_network"
-  source              = "git::https://git@github.com/skipgcy/myaws_labwork.git"
+  source = "git::https://git@github.com/skipgcy/myaws_labwork.git"
   env                 = var.env
-  vpc_cidr_blocks            = var.vpc_cidr_blocks
+  vpc_cidr_blocks     = var.vpc_cidr_blocks
   public_subnet_cidr_blocks = var.public_subnet_cidr_blocks
   prefix              = var.prefix
   default_tags        = var.default_tags
 }
+
 
 #Use remote state to retrieve the data
 data "terraform_remote_state" "network" {
