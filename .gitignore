@@ -1,0 +1,14 @@
+form/
+*.tfstate
+*.tfstate.backup
+*.log
+
+.terraform/
+*.tfstate
+*.tfstate.*
+
+.terraform/
+*.tfstate
+*.tfstate.*
+.git
+
